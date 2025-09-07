@@ -3,11 +3,11 @@ import pool from "../../lib/db";
 // POST → registrar devolución
 export async function POST(req) {
   try {
-    const { pedido_id, producto_id, cantidad } = await req.json();
+    const { pedido_id, producto_id, cantidad, motivo } = await req.json();
 
     await pool.query(
-      "INSERT INTO tienda_app.devoluciones (pedido_id, producto_id, cantidad) VALUES ($1, $2, $3)",
-      [pedido_id, producto_id, cantidad]
+      "INSERT INTO tienda_app.devoluciones (pedido_id, producto_id, cantidad, motivo) VALUES ($1, $2, $3, $4)",
+      [pedido_id, producto_id, cantidad, motivo]
     );
 
     await pool.query(
@@ -26,6 +26,7 @@ export async function POST(req) {
     });
   }
 }
+
 
 // GET → listar devoluciones
 export async function GET() {
