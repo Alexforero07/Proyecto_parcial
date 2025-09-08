@@ -151,7 +151,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">Gestión de Negocio</h1>
         <div>
           <span className="mr-4 font-semibold">Usuario: {user.nombre} ({user.rol})</span>
-          <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-1 rounded">Logout</button>
+          <button onClick={handleLogout} className="bg-red-500 text-white px-3 py-1 rounded">SALIR</button>
         </div>
       </div>
 
