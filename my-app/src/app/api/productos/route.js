@@ -4,6 +4,29 @@ import pool from "../../lib/db";
 export async function POST(req) {
   try {
     const { nombre, precio, stock } = await req.json();
+
+    // 🔹 Validaciones
+    if (!nombre || nombre.trim() === "") {
+      return new Response(
+        JSON.stringify({ error: "El nombre del producto es obligatorio" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    if (precio <= 0) {
+      return new Response(
+        JSON.stringify({ error: "El precio debe ser mayor a 0" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    if (stock < 0) {
+      return new Response(
+        JSON.stringify({ error: "El stock no puede ser negativo" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     await pool.query(
       "INSERT INTO tienda_app.productos (nombre, precio, stock) VALUES ($1, $2, $3)",
       [nombre, precio, stock]

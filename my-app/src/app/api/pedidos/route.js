@@ -5,6 +5,46 @@ export async function POST(req) {
   try {
     const { cliente_id, productos, cantidades } = await req.json();
 
+    // 🔹 Validación de cliente_id
+    if (!cliente_id || cliente_id <= 0) {
+      return new Response(
+        JSON.stringify({ error: "El ID de cliente debe ser un número positivo" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // 🔹 Validación de arrays
+    if (!Array.isArray(productos) || !Array.isArray(cantidades)) {
+      return new Response(
+        JSON.stringify({ error: "Productos y cantidades deben ser arreglos" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    if (productos.length !== cantidades.length) {
+      return new Response(
+        JSON.stringify({ error: "La cantidad de productos y cantidades no coincide" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // 🔹 Validación de cada producto_id y cantidad
+    for (let i = 0; i < productos.length; i++) {
+      if (productos[i] <= 0) {
+        return new Response(
+          JSON.stringify({ error: "El ID del producto debe ser un número positivo" }),
+          { status: 400, headers: { "Content-Type": "application/json" } }
+        );
+      }
+      if (cantidades[i] <= 0) {
+        return new Response(
+          JSON.stringify({ error: "La cantidad debe ser mayor a 0" }),
+          { status: 400, headers: { "Content-Type": "application/json" } }
+        );
+      }
+    }
+
+    // 🚀 Crear pedido
     const resultPedido = await pool.query(
       "INSERT INTO tienda_app.pedidos (cliente_id, total) VALUES ($1, 0) RETURNING id",
       [cliente_id]
