@@ -16,21 +16,10 @@ El objetivo es brindar una herramienta que facilite la toma de decisiones, el co
 
 ---
 
-## 🛠️ Tecnologías utilizadas
-
-- **Frontend:** React.js / Next.js  
-- **Backend:** Node.js con Express  
-- **Base de datos:** PostgreSQL o MySQL  
-- **ORM / Query Builder:** Prisma o consultas SQL nativas  
-- **Estilos:** TailwindCSS  
-- **Autenticación:** JWT (JSON Web Tokens)  
-- **Control de versiones:** Git & GitHub  
-
----
 
 ## ⚙️ Instalación y configuración
 
 ### 1️⃣ Clonar el repositorio
 ```bash
-git clone https://github.com/tuusuario/gestion-negocio.git
-cd gestion-negocio
+git clone https://github.com/tuusuario/Proyecto_parcial.git
+cd Proyecto_parcial
