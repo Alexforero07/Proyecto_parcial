@@ -1,11 +1,11 @@
 import pool from "../../lib/db"; 
 
-// POST → registrar pedido con productos
+//registrar pedido con productos
 export async function POST(req) {
   try {
     const { cliente_id, productos, cantidades } = await req.json();
 
-    // 🔹 Validación de cliente_id
+    // Validaciones
     if (!cliente_id || cliente_id <= 0) {
       return new Response(
         JSON.stringify({ error: "El ID de cliente debe ser un número positivo" }),
@@ -13,7 +13,7 @@ export async function POST(req) {
       );
     }
 
-    // 🔹 Validación de arrays
+    
     if (!Array.isArray(productos) || !Array.isArray(cantidades)) {
       return new Response(
         JSON.stringify({ error: "Productos y cantidades deben ser arreglos" }),
@@ -28,7 +28,7 @@ export async function POST(req) {
       );
     }
 
-    // 🔹 Validación de cada producto_id y cantidad
+    
     for (let i = 0; i < productos.length; i++) {
       if (productos[i] <= 0) {
         return new Response(
@@ -44,7 +44,7 @@ export async function POST(req) {
       }
     }
 
-    // 🚀 Crear pedido
+    // Crear pedido
     const resultPedido = await pool.query(
       "INSERT INTO tienda_app.pedidos (cliente_id, total) VALUES ($1, 0) RETURNING id",
       [cliente_id]
@@ -94,7 +94,7 @@ export async function POST(req) {
   }
 }
 
-// GET → listar pedidos
+// listar pedidos
 export async function GET() {
   try {
     const result = await pool.query(

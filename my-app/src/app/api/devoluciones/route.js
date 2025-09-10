@@ -4,7 +4,7 @@ export async function POST(req) {
   try {
     const { pedido_id, producto_id, cantidad, motivo } = await req.json();
 
-    // 🔹 Validaciones
+    //Validaciones
     if (!pedido_id || pedido_id <= 0) {
       return new Response(
         JSON.stringify({ error: "El ID Pedido debe ser valido y mayor a 0" }),
@@ -56,7 +56,7 @@ export async function POST(req) {
     });
   }
 }
-// GET → listar devoluciones
+// listar devoluciones
 export async function GET() {
   try {
     const result = await pool.query(

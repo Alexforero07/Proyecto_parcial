@@ -1,5 +1,4 @@
-// archivo: src/app/api/login/route.js
-import pool from "../../lib/db"; // asegúrate de que tu db.js exporte default pool
+import pool from "../../lib/db"; 
 
 export async function POST(req, res) {
   try {

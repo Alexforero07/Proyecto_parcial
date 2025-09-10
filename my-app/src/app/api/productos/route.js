@@ -1,11 +1,11 @@
 import pool from "../../lib/db"; 
 
-// POST → crear producto
+// crear producto
 export async function POST(req) {
   try {
     const { nombre, precio, stock } = await req.json();
 
-    // 🔹 Validaciones
+    // Validaciones
     if (!nombre || nombre.trim() === "") {
       return new Response(
         JSON.stringify({ error: "El nombre del producto es obligatorio" }),
@@ -44,7 +44,7 @@ export async function POST(req) {
   }
 }
 
-// GET → listar productos
+// listar productos
 export async function GET() {
   try {
     const result = await pool.query(

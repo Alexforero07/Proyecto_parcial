@@ -1,6 +1,5 @@
 import { query } from "../../lib/db";
 
-// 🚀 GET → obtener todos los clientes
 export async function GET() {
   try {
     const result = await query(
@@ -19,7 +18,7 @@ export async function GET() {
   }
 }
 
-// 🚀 POST → insertar cliente
+
 export async function POST(req) {
   try {
     const { nombre, email, telefono, direccion } = await req.json();
@@ -88,7 +87,6 @@ export async function PUT(req) {
   }
 }
 
-// 🚀 DELETE → eliminar cliente (solo admin)
 export async function DELETE(req) {
   try {
     const { id } = await req.json();

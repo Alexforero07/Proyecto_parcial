@@ -1,7 +1,7 @@
-import pool from "../../../lib/db"; // asegúrate de que esta ruta funcione según tu proyecto
+import pool from "../../../lib/db"; 
 
 export async function DELETE(req, { params }) {
-  const { id } = params; // tomamos el id desde la URL
+  const { id } = params; 
 
   try {
     const result = await pool.query(
