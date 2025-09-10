@@ -16,17 +16,6 @@ El objetivo es brindar una herramienta que facilite la toma de decisiones, el co
 
 ---
 
-## 🛠️ Tecnologías utilizadas
-
-- **Frontend:** React.js / Next.js  
-- **Backend:** Node.js con Express  
-- **Base de datos:** PostgreSQL o MySQL  
-- **ORM / Query Builder:** Prisma o consultas SQL nativas  
-- **Estilos:** TailwindCSS  
-- **Autenticación:** JWT (JSON Web Tokens)  
-- **Control de versiones:** Git & GitHub  
-
----
 
 ## ⚙️ Instalación y configuración
 
