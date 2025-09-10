@@ -32,5 +32,5 @@ El objetivo es brindar una herramienta que facilite la toma de decisiones, el co
 
 ### 1️⃣ Clonar el repositorio
 ```bash
-git clone https://github.com/tuusuario/gestion-negocio.git
-cd gestion-negocio
+git clone https://github.com/tuusuario/Proyecto_parcial.git
+cd Proyecto_parcial
