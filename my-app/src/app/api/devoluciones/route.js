@@ -1,5 +1,5 @@
 import pool from "../../lib/db"; 
-// POST → registrar devolución
+// registrar devolución
 export async function POST(req) {
   try {
     const { pedido_id, producto_id, cantidad, motivo } = await req.json();
@@ -33,13 +33,13 @@ export async function POST(req) {
       );
     }
 
-    // 🔹 Insertar devolución
+    // Insertar devolución
     await pool.query(
       "INSERT INTO tienda_app.devoluciones (pedido_id, producto_id, cantidad, motivo) VALUES ($1, $2, $3, $4)",
       [pedido_id, producto_id, cantidad, motivo]
     );
 
-    // 🔹 Actualizar stock
+    // Actualizar stock
     await pool.query(
       "UPDATE tienda_app.productos SET stock = stock + $1 WHERE id = $2",
       [cantidad, producto_id]

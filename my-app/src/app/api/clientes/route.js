@@ -48,7 +48,7 @@ export async function POST(req) {
   }
 }
 
-// 🚀 PUT → actualizar cliente
+// actualizar cliente
 export async function PUT(req) {
   try {
     const { id, nombre, email, telefono, direccion } = await req.json();
